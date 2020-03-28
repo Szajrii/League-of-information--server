@@ -16,16 +16,18 @@ public class MyServer implements Subscriber {
     private int port;
     private HttpServer server;
     private Controller fxcontroller;
+    private String filePath;
 
-    public MyServer(String hostName, int port, Controller fxcontroller) throws IOException {
+    public MyServer(String hostName, int port, Controller fxcontroller, String filePath) throws IOException {
         this.hostName = hostName;
         this.port = port;
         this.fxcontroller = fxcontroller;
         this.server = HttpServer.create(new InetSocketAddress(hostName, port), 0);
+        this.filePath = filePath;
     }
 
     public void startServer() {
-        server.createContext("/", new ChampionListHandler(this));
+        server.createContext("/", new ChampionListHandler(this, filePath));
         server.setExecutor(null);
         server.start();
         fxcontroller.notify("Server running on localhost:3000");

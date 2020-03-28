@@ -9,9 +9,11 @@ import server.Subscriber;
  **/
 public abstract class MyHandler implements HttpHandler {
     protected Subscriber httpserver;
+    protected String filePath;
 
-    public MyHandler(Subscriber httpserver) {
+    public MyHandler(Subscriber httpserver, String filePath) {
         this.httpserver = httpserver;
+        this.filePath = filePath;
     }
 
 }

@@ -33,13 +33,13 @@ public class Controller implements Subscriber {
         filename.setText(nameOfFile);
         filePath = fileDialog.getDirectory() + fileDialog.getFile();
 
-        runServer();
+        runServer(filePath);
 
     }
 
-    private void runServer() {
+    private void runServer(String pathToFile) {
         try {
-            MyServer server = new MyServer("localhost", 3000, this);
+            MyServer server = new MyServer("localhost", 3000, this, pathToFile);
             server.startServer();
         } catch (IOException ex) {
             console.append(ex);
