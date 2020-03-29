@@ -7,11 +7,6 @@ public class SimpleChampion {
     protected String name;
     protected String imgSuffix;
 
-//    public SimpleChampion(String name, String imgSuffix) {
-//        this.name = name;
-//        this.imgSuffix = imgSuffix;
-//    }
-
 
     public void setName(String name) {
         this.name = name;
@@ -23,6 +18,6 @@ public class SimpleChampion {
 
     @Override
     public String toString() {
-        return "{\"name\":" + "\"" + name + "\",\"suffix\":" + "\"" + imgSuffix + "\",}";
+        return "{\"name\":" + "\"" + name + "\",\"suffix\":" + "\"" + imgSuffix + "\"}";
     }
 }

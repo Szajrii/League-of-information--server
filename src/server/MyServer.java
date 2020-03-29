@@ -3,6 +3,7 @@ package server;
 import com.sun.net.httpserver.HttpServer;
 import sample.Controller;
 import server.handlers.ChampionListHandler;
+import server.handlers.SpecificChampionHandler;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -28,6 +29,7 @@ public class MyServer implements Subscriber {
 
     public void startServer() {
         server.createContext("/", new ChampionListHandler(this, filePath));
+        server.createContext("/champion", new SpecificChampionHandler(this, filePath));
         server.setExecutor(null);
         server.start();
         fxcontroller.notify("Server running on localhost:3000");
